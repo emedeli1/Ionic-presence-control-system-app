@@ -1,95 +1,162 @@
-Proyecto: Sistema de Control de Presencia
+# Presence Control System
 
-Este proyecto consta de tres componentes principales:
+This project consists of three main components:
 
-AppUsuario: Aplicación móvil desarrollada con Ionic que permite a los usuarios registrar y consultar fichajes.
-AppAdmin: Aplicación móvil desarrollada con Ionic para la gestión de usuarios, trabajos y fichajes por parte de los administradores.
-Servidor: Backend generado automáticamente con Swagger que maneja todas las operaciones relacionadas con usuarios, fichajes y trabajos.
-A continuación, te explico cómo configurar y ejecutar todos los componentes.
+- **AppUsuario**: A mobile application developed with Ionic that allows users to register and view check-ins.  
+- **AppAdmin**: A mobile application developed with Ionic for administrators to manage users, jobs, and check-ins.  
+- **Server**: A backend automatically generated with Swagger that handles all operations related to users, check-ins, and jobs.
 
-Requisitos Previos
-Antes de empezar, asegúrate de tener instaladas las siguientes herramientas en tu máquina:
+Below is a guide on how to set up and run all components.
 
-Node.js (recomendado LTS): Descargar aquí.
-Ionic CLI: Instálalo ejecutando este comando en la terminal:
+---
 
+## Prerequisites
+
+Before starting, make sure you have the following installed on your machine:
+
+- **Node.js (LTS recommended)**: [Download here](https://nodejs.org/)  
+- **Ionic CLI**: Install globally using:
+
+```bash
 npm install -g @ionic/cli
-1. Iniciar el Servidor Backend
-El servidor fue generado usando Swagger y maneja las operaciones de CRUD necesarias para la aplicación.
+```
 
-Pasos para iniciar el servidor:
-Navega a la carpeta del servidor en tu terminal:
+---
 
-cd /ruta/del/proyecto/server
-Instala las dependencias del servidor:
+## Starting the Backend Server
 
+The server was generated using Swagger and handles all necessary CRUD operations for the applications.
+
+**Steps to start the server:**
+
+1. Navigate to the server folder:
+
+```bash
+cd /path/to/project/server
+```
+
+2. Install server dependencies:
+
+```bash
 npm install
-Inicia el servidor:
+```
 
+3. Start the server:
+
+```bash
 npm start
-Esto ejecutará el servidor en el puerto 8080 (por defecto). Si está bien configurado, deberías ver algo como esto en la terminal:
+```
 
+The server will run on port `8080` by default. You should see something like:
+
+```
 Server running at http://localhost:8080
-Verifica el funcionamiento del servidor accediendo a http://localhost:8080 desde tu navegador.
+```
 
-2. Iniciar la AppUsuario
-La AppUsuario es la interfaz con la que los usuarios interactúan para registrar y consultar fichajes.
+Verify it by opening [http://localhost:8080](http://localhost:8080) in your browser.
 
-Pasos para iniciar la AppUsuario:
-Navega a la carpeta de la aplicación:
+---
 
-cd /ruta/del/proyecto/AppUsuario
-Instala las dependencias necesarias:
+## Starting AppUsuario
 
+AppUsuario is the interface for users to register and view check-ins.
+
+**Steps to start AppUsuario:**
+
+1. Navigate to the AppUsuario folder:
+
+```bash
+cd /path/to/project/AppUsuario
+```
+
+2. Install dependencies:
+
+```bash
 npm install
-Inicia la aplicación en modo desarrollo:
+```
 
+3. Run the app in development mode:
+
+```bash
 ionic serve
-Esto abrirá la app en tu navegador en http://localhost:8100.
+```
 
-3. Iniciar la AppAdmin
-La AppAdmin es utilizada por los administradores para gestionar usuarios, trabajos y fichajes.
+The app will open in your browser at [http://localhost:8100](http://localhost:8100).
 
-Pasos para iniciar la AppAdmin:
-Navega a la carpeta de la aplicación:
+---
 
-cd /ruta/del/proyecto/AppAdmin
-Instala las dependencias necesarias:
+## Starting AppAdmin
 
+AppAdmin is used by administrators to manage users, jobs, and check-ins.
+
+**Steps to start AppAdmin:**
+
+1. Navigate to the AppAdmin folder:
+
+```bash
+cd /path/to/project/AppAdmin
+```
+
+2. Install dependencies:
+
+```bash
 npm install
-Inicia la aplicación en modo desarrollo:
+```
 
+3. Run the app in development mode:
+
+```bash
 ionic serve
+```
 
-Esto abrirá la app en tu navegador en http://localhost:8101 (puerto por defecto).
+The app will open in your browser at [http://localhost:8101](http://localhost:8101).
 
-4. Configuración de Geolocalización
-La AppUsuario utiliza la geolocalización para registrar los fichajes con ubicación.
+---
 
-Pasos para configurar la geolocalización:
-Asegúrate de estar en la carpeta de la AppUsuario:
+## Geolocation Configuration
 
-cd /ruta/del/proyecto/AppUsuario
-Instala el plugin de geolocalización:
+AppUsuario uses geolocation to record check-ins with location data.
 
+**Steps to configure geolocation:**
+
+1. Make sure you are in the AppUsuario folder:
+
+```bash
+cd /path/to/project/AppUsuario
+```
+
+2. Install the geolocation plugin:
+
+```bash
 npm install @capacitor/geolocation
-Sincroniza el proyecto con Capacitor:
+```
 
+3. Sync the project with Capacitor:
+
+```bash
 ionic cap sync
-En un dispositivo móvil, asegúrate de que la app tenga permisos de ubicación.
+```
 
-5. Notas Importantes
-Apps independientes: El backend, la AppUsuario, y la AppAdmin son servicios independientes que se ejecutan por separado. Asegúrate de que el backend esté corriendo antes de usar las aplicaciones.
+4. On a mobile device, ensure the app has location permissions enabled.
 
-Puertos por defecto:
+---
 
-Servidor backend: 8080
-AppUsuario: 8100
-AppAdmin: 8101
-Problemas comunes:
+## Important Notes
 
-Verifica que la URL del backend configurada en las aplicaciones sea correcta.
-Si la geolocalización no funciona, revisa los permisos y configuraciones del dispositivo.
+- **Independent apps**: The backend, AppUsuario, and AppAdmin run as separate services. Make sure the backend is running before using the apps.  
+- **Default ports**:
+  - Backend server: `8080`
+  - AppUsuario: `8100`
+  - AppAdmin: `8101`  
 
-6. ¡Todo Listo!
-Con estas configuraciones, el sistema de control de presencia estará funcionando correctamente. 🚀
+**Common issues**:
+
+- Verify that the backend URL configured in the apps is correct.  
+- If geolocation is not working, check device permissions and settings.
+
+---
+
+## ✅ All Set!
+
+With these configurations, the Presence Control System should be running correctly. 🚀
+
