@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Gestionar Usuarios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <!-- Lista de usuarios -->
+  <ion-list>
+    <ion-item *ngFor="let usuario of usuariosArray" class="usuario-item">
+      <ion-label class="usuario-label">
+        <h2 class="usuario-nombre">{{ usuario.Nombre }}</h2>
+      </ion-label>
+      <ion-button [routerLink]="['/editar-usuario', usuario.IdUsuario]" color="warning" size="small">
+        <ion-icon name="create"></ion-icon>
+      </ion-button>
+      <ion-button (click)="deleteUsuario(usuario.IdUsuario)" color="danger" size="small">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <!-- Botón para añadir nuevo usuario -->
+  <ion-button [routerLink]="['/nuevo-usuario']" expand="block" color="success" class="nuevo-usuario-button">
+    Añadir Usuario
+  </ion-button>
+</ion-content>

@@ -1,0 +1,21 @@
+.trabajo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+  
+  .trabajo-label {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .trabajo-nombre {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .nuevo-trabajo-button {
+    margin-top: 20px;
+    font-weight: bold;
+  }

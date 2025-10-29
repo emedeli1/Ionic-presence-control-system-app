@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Registrar Fichaje</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="content-background">
+  <ion-item class="form-item">
+    <ion-label>Trabajo</ion-label>
+    <ion-select placeholder="Selecciona un trabajo" [(ngModel)]="selectedTrabajo" class="select-input">
+      <ion-select-option *ngFor="let trabajo of trabajosArray" [value]="trabajo.IdTrabajo">
+        {{ trabajo.Nombre }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-button expand="block" (click)="realizarFichaje()" class="action-button">
+    {{ tieneFichajeReciente ? 'Finalizar Fichaje' : 'Iniciar Fichaje' }}
+  </ion-button>
+
+  <p *ngIf="mensajeEstado" class="status-message">{{ mensajeEstado }}</p>
+
+  <p *ngIf="tieneFichajeReciente" class="warning-text">
+    Tienes un fichaje abierto en las últimas 12 horas. Finalízalo antes de iniciar uno nuevo.
+  </p>
+</ion-content>

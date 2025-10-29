@@ -1,0 +1,239 @@
+// For information on how to create your own theme, please see:
+// http://ionicframework.com/docs/theming/
+.fichaje-item {
+    margin-bottom: 15px;
+  }
+  
+  .fichaje-card {
+    background-color: #2a2a2a;  /* Fondo oscuro */
+    color: #f0f0f0;  /* Texto claro para contraste */
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #0070f3;  /* Color para destacar el título */
+  }
+  
+  .card-content p {
+    font-size: 1rem;
+    color: #f0f0f0;  /* Texto claro */
+    margin: 8px 0;
+  }
+  
+  .card-content strong {
+    color: #0070f3;  /* Resaltar los nombres de los campos */
+  }
+  .content-background {
+    background-color: #121212;  /* Fondo oscuro */
+  }
+  
+  .toolbar-condense {
+    background-color: #2a2a2a;  /* Fondo oscuro para la barra */
+    color: #f0f0f0;  /* Texto claro */
+  }
+  
+  ion-title {
+    color: #f0f0f0;  /* Color claro para el título */
+  }
+  
+  .buttons-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .modern-button {
+    border-radius: 8px;
+    font-size: 1rem;
+    padding: 12px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .modern-button:hover {
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  ion-button[color="primary"] {
+    --background: #0070f3;  /* Azul para los botones principales */
+    --color: #fff;  /* Texto blanco */
+  }
+  
+  ion-button[color="secondary"] {
+    --background: #4a90e2;  /* Un azul más suave */
+    --color: #fff;  /* Texto blanco */
+  }
+  
+  ion-toolbar {
+    background-color: #2a2a2a;  /* Fondo oscuro para la barra */
+  }
+  
+  ion-title {
+    color: #f0f0f0;  /* Texto claro */
+  }
+  
+  .form-item {
+    background-color: #2a2a2a;  /* Fondo oscuro para los campos */
+    margin-bottom: 20px;
+    border-radius: 8px;
+    padding: 10px;
+  }
+  
+  .select-input {
+    --background: #2a2a2a;
+    --color: #f0f0f0;  /* Color de texto claro */
+    --placeholder-color: #aaa;  /* Color del placeholder */
+  }
+  
+  .action-button {
+    border-radius: 8px;
+    font-size: 1rem;
+    padding: 12px 0;
+    background-color: #0070f3;  /* Azul brillante */
+    color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .action-button:hover {
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+    background-color: #005bb5;  /* Cambio a un azul más oscuro en hover */
+  }
+  
+  .warning-text {
+    color: #ff6f61;  /* Color rojo para advertencia */
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+
+  .status-message {
+    margin-top: 10px;
+    color: green; // O usa `color: red;` para indicar un error si aplicas lógica condicional
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .fichaje-item {
+    margin-bottom: 15px;
+  }
+  
+  .fichaje-card {
+    background-color: #2a2a2a;  /* Fondo oscuro */
+    color: #f0f0f0;  /* Texto claro para contraste */
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #0070f3;  /* Color para destacar el título */
+  }
+  
+  .card-content p {
+    font-size: 1rem;
+    color: #f0f0f0;  /* Texto claro */
+    margin: 8px 0;
+  }
+  
+  .card-content strong {
+    color: #0070f3;  /* Resaltar los nombres de los campos */
+  }
+  .content-background {
+    background-color: #121212;  /* Fondo oscuro */
+  }
+  
+  .toolbar-condense {
+    background-color: #2a2a2a;  /* Fondo oscuro para la barra */
+    color: #f0f0f0;  /* Texto claro */
+  }
+  
+  ion-title {
+    color: #f0f0f0;  /* Color claro para el título */
+  }
+  
+  .buttons-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .modern-button {
+    border-radius: 8px;
+    font-size: 1rem;
+    padding: 12px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .modern-button:hover {
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  ion-button[color="primary"] {
+    --background: #0070f3;  /* Azul para los botones principales */
+    --color: #fff;  /* Texto blanco */
+  }
+  
+  ion-button[color="secondary"] {
+    --background: #4a90e2;  /* Un azul más suave */
+    --color: #fff;  /* Texto blanco */
+  }
+  
+  ion-toolbar {
+    background-color: #2a2a2a;  /* Fondo oscuro para la barra */
+  }
+  
+  ion-title {
+    color: #f0f0f0;  /* Texto claro */
+  }
+  
+  .form-item {
+    background-color: #2a2a2a;  /* Fondo oscuro para los campos */
+    margin-bottom: 20px;
+    border-radius: 8px;
+    padding: 10px;
+  }
+  
+  .select-input {
+    --background: #2a2a2a;
+    --color: #f0f0f0;  /* Color de texto claro */
+    --placeholder-color: #aaa;  /* Color del placeholder */
+  }
+  
+  .action-button {
+    border-radius: 8px;
+    font-size: 1rem;
+    padding: 12px 0;
+    background-color: #0070f3;  /* Azul brillante */
+    color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .action-button:hover {
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+    background-color: #005bb5;  /* Cambio a un azul más oscuro en hover */
+  }
+  
+  .warning-text {
+    color: #ff6f61;  /* Color rojo para advertencia */
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+
+  .status-message {
+    margin-top: 10px;
+    color: green; // O usa `color: red;` para indicar un error si aplicas lógica condicional
+    font-weight: bold;
+    text-align: center;
+  }

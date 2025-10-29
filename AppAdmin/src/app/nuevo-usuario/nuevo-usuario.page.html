@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Nuevo Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <!-- Formulario -->
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Nombre:</ion-label>
+      <ion-input [(ngModel)]="Nombre" placeholder="Nombre"></ion-input>
+    </ion-item>
+    <p *ngIf="mostrarErrorNombre" class="error-text">El nombre es obligatorio.</p>
+
+    <ion-item>
+      <ion-label position="stacked">Usuario:</ion-label>
+      <ion-input [(ngModel)]="Usuario" placeholder="Usuario"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Clave:</ion-label>
+      <ion-input [(ngModel)]="Clave" placeholder="Clave"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <!-- Botones de acción -->
+  <div class="action-buttons">
+    <ion-button (click)="nuevoUsuario()" color="success" expand="block">
+      Añadir Usuario
+    </ion-button>
+    <ion-button [routerLink]="['/gestion-usuarios']" color="warning" expand="block">
+      Cancelar
+    </ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,22 @@
+.usuario-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+  
+  .usuario-label {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .usuario-nombre {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .nuevo-usuario-button {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  

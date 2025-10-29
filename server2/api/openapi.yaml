@@ -1,0 +1,616 @@
+openapi: 3.0.0
+info:
+  title: Control de Presencia API
+  description: API para gestionar usuarios con operaciones CRUD
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: http://localhost:8080
+  description: Servidor ApiRest DISM
+paths:
+  /usuarios:
+    get:
+      tags:
+      - Usuarios
+      description: Obtener todos los usuarios
+      operationId: usuariosGET
+      responses:
+        "200":
+          description: Lista de todos los usuarios
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Usuario'
+                x-content-type: application/json
+        "400":
+          description: Error al obtener los usuarios
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+      x-swagger-router-controller: Usuarios
+  /usuario:
+    get:
+      tags:
+      - Usuarios
+      description: GET Usuario
+      operationId: usuarioGET
+      parameters:
+      - name: idUsuario
+        in: query
+        description: Nombre del usuario
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Usuario obtenido
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Usuario'
+        "400":
+          description: Error al obtener usuario
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+      x-swagger-router-controller: Usuarios
+    post:
+      tags:
+      - Usuarios
+      description: Crear nuevo usuario
+      operationId: usuarioPOST
+      requestBody:
+        description: Información del nuevo usuario
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Usuario'
+        required: true
+      responses:
+        "201":
+          description: Usuario creado correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+        "400":
+          description: Error al crear usuario
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+      x-swagger-router-controller: Usuarios
+    delete:
+      tags:
+      - Usuarios
+      description: Borrado de usuario
+      operationId: usuarioDELETE
+      parameters:
+      - name: idUsuario
+        in: query
+        description: ID del usuario
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Usuario eliminado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+        "404":
+          description: Usuario NO encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+      x-swagger-router-controller: Usuarios
+  /usuario/{id}:
+    put:
+      tags:
+      - Usuarios
+      description: Modificación de datos de usuario
+      operationId: usuarioPUT
+      parameters:
+      - name: id
+        in: path
+        description: ID del usuario a modificar
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        description: Información actualizada correctamente
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Usuario'
+        required: true
+      responses:
+        "200":
+          description: Usuario actualizado correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+        "400":
+          description: Usuario NO actualizado correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+      x-swagger-router-controller: Usuarios
+  /trabajos:
+    get:
+      tags:
+      - Trabajos
+      description: Obtener todos los trabajos
+      operationId: trabajosGET
+      responses:
+        "200":
+          description: Lista de todos los trabajos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Trabajo'
+                x-content-type: application/json
+        "400":
+          description: Error al obtener los trabajos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+      x-swagger-router-controller: Trabajos
+  /trabajo:
+    get:
+      tags:
+      - Trabajos
+      description: GET Trabajo
+      operationId: trabajoGET
+      parameters:
+      - name: idTrabajo
+        in: query
+        description: Nombre del trabajo
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Trabajo obtenido
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trabajo'
+        "400":
+          description: Error al obtener trabajo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+      x-swagger-router-controller: Trabajos
+    post:
+      tags:
+      - Trabajos
+      description: Crear nuevo trabajo
+      operationId: trabajoPOST
+      requestBody:
+        description: Información del nuevo trabajo
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrabajoPost'
+        required: true
+      responses:
+        "201":
+          description: Trabajo creado correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+        "400":
+          description: Error al crear trabajo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+      x-swagger-router-controller: Trabajos
+    delete:
+      tags:
+      - Trabajos
+      description: Borrar un trabajo
+      operationId: trabajoDELETE
+      parameters:
+      - name: idTrabajo
+        in: query
+        description: ID del trabajo a eliminar
+        required: true
+        style: form
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Trabajo eliminado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+        "404":
+          description: Trabajo NO encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+      x-swagger-router-controller: Trabajos
+  /trabajo/{id}:
+    put:
+      tags:
+      - Trabajos
+      description: Modificar un trabajo existente
+      operationId: trabajoPUT
+      parameters:
+      - name: id
+        in: path
+        description: ID del trabajo a modificar
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        description: Información actualizada del trabajo
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Trabajo'
+        required: true
+      responses:
+        "200":
+          description: Trabajo actualizado correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+        "400":
+          description: Error al actualizar trabajo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+      x-swagger-router-controller: Trabajos
+  /fichajes:
+    get:
+      tags:
+      - Fichajes
+      description: Obtener todos los fichajes
+      operationId: fichajesGET
+      responses:
+        "200":
+          description: Lista de todos los fichajes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Fichaje'
+                x-content-type: application/json
+        "400":
+          description: Error al obtener los fichajes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+      x-swagger-router-controller: Fichajes
+  /fichaje:
+    get:
+      tags:
+      - Fichajes
+      description: GET fichaje
+      operationId: fichajeGET
+      parameters:
+      - name: identificador
+        in: query
+        description: Nombre del Fichaje
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Fichaje obtenido
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Fichaje'
+        "400":
+          description: Error al obtener usuario
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+      x-swagger-router-controller: Fichajes
+    post:
+      tags:
+      - Fichajes
+      description: Registrar nuevo fichaje
+      operationId: fichajePOST
+      requestBody:
+        description: Información del nuevo fichaje
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FichajePost'
+        required: true
+      responses:
+        "201":
+          description: Fichaje creado correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+        "400":
+          description: Error al crear fichaje
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+      x-swagger-router-controller: Fichajes
+    delete:
+      tags:
+      - Fichajes
+      description: Borrar un fichaje
+      operationId: fichajeDELETE
+      parameters:
+      - name: id
+        in: path
+        description: ID del fichaje a eliminar
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Fichaje eliminado correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+        "404":
+          description: Fichaje NO encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+      x-swagger-router-controller: Fichajes
+  /fichaje/{id}:
+    put:
+      tags:
+      - Fichajes
+      description: Modificación de un fichaje existente
+      operationId: fichajePUT
+      parameters:
+      - name: id
+        in: path
+        description: ID del fichaje a modificar
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        description: Información actualizada del fichaje
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Fichaje'
+        required: true
+      responses:
+        "200":
+          description: Fichaje actualizado correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+        "400":
+          description: Error al actualizar fichaje
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+      x-swagger-router-controller: Fichajes
+  /apikey:
+    get:
+      tags:
+      - ApiKey
+      description: Obtener todas las ApiKeys
+      operationId: apiKeyGET
+      responses:
+        "200":
+          description: Lista de todas las ApiKeys
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ApiKey'
+                x-content-type: application/json
+        "400":
+          description: Error al obtener las ApiKeys
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+      x-swagger-router-controller: ApiKey
+    post:
+      tags:
+      - ApiKey
+      description: Crear nueva ApiKey
+      operationId: apiKeyPOST
+      requestBody:
+        description: Información de la nueva ApiKey
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiKey'
+        required: true
+      responses:
+        "201":
+          description: ApiKey creada correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+        "400":
+          description: Error al crear ApiKey
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+      x-swagger-router-controller: ApiKey
+    delete:
+      tags:
+      - ApiKey
+      description: Borrar una ApiKey
+      operationId: apiKeyDELETE
+      parameters:
+      - name: idKey
+        in: query
+        description: ID de la ApiKey a eliminar
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: ApiKey eliminada correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+        "404":
+          description: ApiKey NO encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_400'
+      x-swagger-router-controller: ApiKey
+components:
+  schemas:
+    Usuario:
+      type: object
+      properties:
+        idUsuario:
+          type: integer
+        nombre:
+          type: string
+        usuario:
+          type: string
+        clave:
+          type: string
+      example:
+        idUsuario: idUsuario
+        nombre: nombre
+        usuario: usuario
+        clave: clave
+    Trabajo:
+      type: object
+      properties:
+        IdTrabajo:
+          type: integer
+        Nombre:
+          type: string
+      example:
+        idTrabajo: 0
+        Nombre: nombre
+    TrabajoPost:
+      type: object
+      properties:
+        Nombre:
+          type: string
+      example:
+        Nombre: nombre
+    Fichaje:
+      type: object
+      properties:
+        idFichaje:
+          type: integer
+        FechaHoraEntrada:
+          type: string
+          format: date-time
+        FechaHoraSalida:
+          type: string
+          format: date-time
+        HorasTrabajadas:
+          type: integer
+        idTrabajo:
+          type: integer
+        idUsuario:
+          type: integer
+        FeolocalizacionLatitud:
+          type: number
+        FeolocalizacionLongitud:
+          type: number
+      example:
+        idTrabajo: idTrabajo
+        FechaHoraEntrada: fechaHoraEntrada
+        FechaHoraSalida: fechaHoraSalida
+        HorasTrabajadas: horasTrabajadas
+        idUsuario: idUsuario
+        GeolocalizacionLongitud: 5.637376656633329
+        GeolocalizacionLatitud: 5.962133916683182
+    FichajePost:
+      type: object
+      properties:
+        FechaHoraEntrada:
+          type: string
+          format: date-time
+        IdTrabajo:
+          type: integer
+        IdUsuario:
+          type: integer
+        GeolocalizacionLatitud:
+          type: number
+        GeolocalizacionLongitud:
+          type: number
+      example:
+        idTrabajo: 1
+        idUsuario: 1
+        GeolocalizacionLongitud: 5.637376656633329
+        GeolocalizacionLatitud: 5.962133916683182
+        FechaHoraEntrada: "2024-10-23T10:51:28Z"
+    ApiKey:
+      type: object
+      properties:
+        idKey:
+          type: integer
+        apiKey:
+          type: string
+      example:
+        idKey: 0
+        apiKey: apiKey
+    inline_response_400:
+      type: object
+      properties:
+        message:
+          type: string
+      example:
+        message: message

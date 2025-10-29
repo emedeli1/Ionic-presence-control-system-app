@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Gestión Fichajes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <!-- Searchbar para filtrar por nombre de usuario -->
+  <ion-searchbar 
+    [(ngModel)]="searchText" 
+    (ionInput)="filterByUser()" 
+    debounce="500" 
+    placeholder="Buscar por usuario" 
+    showClearButton="focus">
+  </ion-searchbar>
+
+  <ion-button expand="block" color="primary" (click)="toggleCalendar()">Seleccionar Fecha</ion-button>
+  <ion-button *ngIf="fechaSeleccionada" color="danger" (click)="clearDate()">Limpiar Fecha</ion-button>
+
+  <ion-item *ngIf="showCalendar">
+    <ion-datetime 
+      [(ngModel)]="fechaSeleccionada" 
+      (ionChange)="filterByDate()"
+      displayFormat="YYYY-MM-DD">
+    </ion-datetime>
+  </ion-item>
+
+  <ion-list lines="none">
+    <ion-item *ngFor="let fichaje of filteredFichajesArray" class="fichaje-item">
+      <ion-card class="fichaje-card">
+        <ion-card-content class="card-content">
+          <p><strong>Usuario:</strong> {{ fichaje.usuarioNombre }}</p>
+          <p><strong>Fecha-Hora Entrada:</strong> {{ fichaje.FechaHoraEntrada }}</p>
+          <p><strong>Fecha-Hora Salida:</strong> {{ fichaje.FechaHoraSalida || "Pendiente" }}</p>
+          <p><strong>Trabajo realizado:</strong> {{ fichaje.trabajoNombre }}</p>
+          <ion-button expand="block" color="tertiary" (click)="mostrarMapa(fichaje.GeolocalizacionLatitud, fichaje.GeolocalizacionLongitud)">
+            Ver Ubicación
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+
+  <div [ngClass]="{'map-container': true, 'hidden': !mapVisible}">
+    <ion-button class="close-map-button" (click)="cerrarMapa()">X</ion-button>
+    <div id="mapId" class="map-content"></div>
+  </div>
+</ion-content>

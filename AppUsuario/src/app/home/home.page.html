@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="content-background">
+  <ion-header collapse="condense">
+    <ion-toolbar class="toolbar-condense">
+      <ion-title size="large">Bienvenido</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="buttons-container">
+    <ion-button [routerLink]="['/registrar-fichaje']" color="primary" expand="block" class="modern-button">
+      Registrar Fichaje
+    </ion-button>
+    <ion-button [routerLink]="['/consultar-fichajes']" color="secondary" expand="block" class="modern-button">
+      Consultar Fichajes
+    </ion-button>
+  </div>
+</ion-content>

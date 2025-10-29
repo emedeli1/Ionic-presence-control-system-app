@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Editar Trabajo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <!-- Formulario -->
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Nombre:</ion-label>
+      <ion-input [(ngModel)]="Nombre" [value]="Nombre"></ion-input>
+    </ion-item>
+    <!-- Mensaje de error si el campo Nombre está vacío -->
+    <p *ngIf="mostrarErrorNombre" class="error-text">
+      El nombre es obligatorio.
+    </p>
+  </ion-list>
+
+  <!-- Botón Guardar -->
+  <div class="action-buttons">
+    <ion-button (click)="guardarTrabajo()" color="success" expand="block">
+      Guardar Cambios
+    </ion-button>
+    <ion-button [routerLink]="['/gestion-trabajos']" color="warning" expand="block">
+      Cancelar
+    </ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,29 @@
+{
+  "name": "control-de-presencia-api",
+  "version": "1.0.0",
+  "description": "API para gestionar usuarios con operaciones CRUD",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "npm install",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "swagger"
+  ],
+  "license": "Unlicense",
+  "private": true,
+  "dependencies": {
+    "@capacitor/geolocation": "^6.0.2",
+    "bcryptjs": "^2.4.3",
+    "connect": "^3.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "js-yaml": "^3.3.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.11.4",
+    "nodemon": "^3.1.7",
+    "oas3-tools": "^2.2.3",
+    "swagger-express-mw": "^0.7.0"
+  }
+}
